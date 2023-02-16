@@ -7,8 +7,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.6",
-    "@actions/exec": "^1.0.4",
+    "@actions/core": "^1.10.0",
+    "@actions/exec": "^1.1.1",
     "otplib": "^12.0.1"
   },
   "devDependencies": {}
