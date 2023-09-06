@@ -5,7 +5,7 @@ module.exports = { createManualActivationFile, activateManualLicense, activateSe
 
 async function activateSerialLicense(unityPath, username, password, serial) {
     // use '-projectPath ?' for skipping project indexing
-    const stdout = await executeUnity(unityPath, `-batchmode -nographics -quit -logFile "-" -projectPath "?" -username "${username}" -password "${password}" -serial "${serial}"`);
+    const stdout = await executeUnity(unityPath, `-quit -batchmode -serial "${serial}" -username "${username}" -password "${password}"`);
     if (!stdout.includes('Next license update check is after')) {
         throw new Error('Activation failed');
     }
@@ -25,7 +25,7 @@ async function activateManualLicense(unityPath, licenseData) {
 }
 
 async function returnLicense(unityPath, username, password) {
-    await executeUnity(unityPath, `-batchmode -nographics -quit -logFile "-" -returnlicense -username "${username}" -password "${password}"`);
+    await executeUnity(unityPath, `-quit -batchmode -returnlicense -username "${username}" -password "${password}"`);
 }
 
 async function executeUnity(unityPath, args) {
